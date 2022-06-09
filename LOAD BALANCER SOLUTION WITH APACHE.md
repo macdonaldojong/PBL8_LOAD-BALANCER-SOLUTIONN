@@ -1,4 +1,7 @@
-### Load Balancer Solution With Nginx and SSL/TLS
+## Project architecture continuation for project7:
+![image](https://user-images.githubusercontent.com/58276505/172847040-27b52e8c-0026-4810-8c81-16c124aca322.png)
+
+### Ensure a Load Balancer Solution With Nginx and SSL/TLS
 
 This project consists of two parts:
 
@@ -52,16 +55,22 @@ Restart Nginx and check status:
 sudo systemctl restart nginx
 sudo systemctl status nginx
 ```
+
 ![Project 10a](https://user-images.githubusercontent.com/41236641/130810763-f72d0102-2ba4-4da0-9ac4-28d118436f97.JPG)
 
 #### Register a new domain name and configure secured connection using SSL/TLS certificates
 
 To obtain a valid SSL certificate, a domain name needs to be registered. The following steps were taken:
+
 ![Project 10](https://user-images.githubusercontent.com/41236641/130810465-8d0e7de7-4f85-4532-9710-0ea8edc8a98a.JPG)
+
 - Registered a domain name with freenorm
 - Assigned an Elastic IP to the Nginx LB server and associated the domain name with this Elastic IP 
+
 ![project10elasticipaddress](https://user-images.githubusercontent.com/41236641/130812590-5daf75b4-3fa0-4e56-b822-8c31dd068a40.JPG)
+
 - Updated a record in the domain name registrar to point to the Nginx LB using Elastic IP address
+
 ![image](https://user-images.githubusercontent.com/41236641/130813130-dea354af-8770-43b9-a60e-9e421fd53357.png)
 
 ###### Configure Nginx to recognize your new domain name
@@ -88,12 +97,15 @@ Request the SSL certificate. Choose the domain that the certificate is to be iss
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 sudo certbot --nginx
 ```
+
 ![Project 10e](https://user-images.githubusercontent.com/41236641/130810958-7955d75f-f80c-4d77-aa06-941efcd736da.JPG)
 
 The web solution should now be securely accessible at https://toolingcd.ga
+
 ![Project 10d](https://user-images.githubusercontent.com/41236641/130813799-55809a48-e96e-41bc-82e8-b867eca8eded.JPG)
 
 Access the website by using HTTPS protocol (that uses TCP port 443) and see a padlock pictogram in the browser’s search string. Click on the padlock icon to find the details of the certificate issued for the website.
+
 ###### Set up periodical renewal of your SSL/TLS certificate
 
 By default, LetsEncrypt certificate is valid for 90 days, so it is recommended to renew it at least every 60 days or more frequently. Test the renewal command in dry-run mode:
