@@ -2,11 +2,21 @@
 ![image](https://user-images.githubusercontent.com/58276505/172847040-27b52e8c-0026-4810-8c81-16c124aca322.png)
 
 ### Ensure a Load Balancer Solution With Nginx and SSL/TLS
+#### Task
+* Deploy and configure an Apache Load Balancer for Tooling Website solution on a separate Ubuntu EC2 intance.
+* Make sure that users can be served by Web servers through the Load Balancer.
+
+#### Prerequisites
+Make sure that you have following servers installed & configured as in Project-7:
+    * Two RHEL8 Web Servers
+    * One MySQL DB Server (based on Ubuntu 20.04)
+    * One RHEL8 NFS server
+
+![image](https://user-images.githubusercontent.com/58276505/172848824-8c862bdd-a609-4760-8036-4499777e5e57.png)
 
 This project consists of two parts:
-
-Configure Nginx as a Load Balancer
-Register a new domain name and configure secured connection using SSL/TLS certificates
+**PartI: Configure Nginx as a Load Balancer
+**PartII: Register a new domain name and configure secured connection using SSL/TLS certificates
 
 #### Part 1 - Configure Nginx As A Load Balancer
 
@@ -126,3 +136,7 @@ Choose nano as the editor and add the following line:
 ```
 * */12 * * *   root /usr/bin/certbot renew > /dev/null 2>&1
 ```
+Now the setup looks like this;
+![image](https://user-images.githubusercontent.com/58276505/172852218-9d0eba2a-0b1b-4349-932d-5860f16ca3b8.png)
+
+
